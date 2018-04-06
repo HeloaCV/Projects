@@ -1,0 +1,53 @@
+  <!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Number Guessing Game</title>
+       
+        <script language="javascript">
+        
+        var RandomNumber = Math.floor(Math.random()*100+1);
+        var numGuesses = 0;
+        
+        function checkGuess() {
+            
+            var guess = document.getElementById("guess");
+            var output = document.getElementById("output");
+            var myNumber = guess.value;
+            
+            
+            numGuesses++;
+            
+            if (myNumber < RandomNumber) {
+               
+                output.value = "Too low! Please try again.";
+            
+            
+            } else if (myNumber > RandomNumber) {
+            
+              output.value = "Too high! Please try again.";
+            
+                
+            } else if (myNumber == RandomNumber) {
+                
+              output.value = "Congratulations! You got it!";
+              alert("The number was " + RandomNumber + "! Congratulations! You got the number after " + numGuesses + " guesses!");
+            
+            }
+            
+        }
+            
+        </script>
+    </head>
+<body>
+
+<h1 style="color:green;">Can you guess my lucky number?</h1>
+
+<form> 
+Enter a number from 1 to 100:
+<input id="guess" type="text" size="8" /><br />
+<input type="button" value="Guess" onclick= "checkGuess()" /><br />
+<input id="output" type="text" size="60" /><br />
+</form>
+</body>
+</html>
